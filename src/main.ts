@@ -33,7 +33,7 @@ export async function responseProvider(request: EW.ResponseProviderRequest) {
 
       if (result.type === 'RESPONSE') {
         return createResponse(
-          JSON.stringify(result.payload), { headers: { "Vary":["*"] } }
+          JSON.stringify(result.payload)
         );  
       } 
     }
