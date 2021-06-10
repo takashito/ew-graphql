@@ -1,13 +1,44 @@
 # ew-graphql
 Graphql Service implemented by Akamai EdgeWoker
 
+## Schema
+```
+  type Author {
+    id: ID!
+    name: String!
+    books: [Book!]!
+  }
+  
+  type Book {
+    id: ID!
+    name: String!
+    publisher: Publisher!
+    authors: [Author!]!
+  }
+  
+  type Publisher {
+    id: ID!
+    name: String!
+    books: [Book!]!
+  }
+  
+  type Query {
+    authors: [Author!]!
+    author(id: ID!): Author!
+    books: [Book!]!
+    book(id: ID!): Book!
+    publishers: [Publisher!]!
+    publisher(id: ID!): Publisher!
+  }
+```
+
 ## Example URLs
-```
-https://ewdemo.test.edgekey.net/graphql?query={books{name}}
-https://ewdemo.test.edgekey.net/graphql?query={books{name,authors{name}}}
-https://ewdemo.test.edgekey.net/graphql?query={books{name,authors{name},publisher{name}}}
-https://ewdemo.test.edgekey.net/graphql?query={books{name,authors{name},publisher{name,books{name}}}}
-```
+
+https://ewdemo.test.edgekey.net/graphql?query={books{name}}<br>
+https://ewdemo.test.edgekey.net/graphql?query={books{name,authors{name}}}<br>
+https://ewdemo.test.edgekey.net/graphql?query={books{name,authors{name},publisher{name}}}<br>
+https://ewdemo.test.edgekey.net/graphql?query={books{name,authors{name},publisher{name,books{name}}}}<br>
+
 
 ## Known EW Issue
 when upload bundle file to sandbox or staging, you will see error 
