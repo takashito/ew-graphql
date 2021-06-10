@@ -1,7 +1,14 @@
 # ew-graphql
 Graphql Service implemented by Akamai EdgeWoker
 
+## Example URLs
+https://ewdemo.test.edgekey.net/graphql?query={books{name}}
+https://ewdemo.test.edgekey.net/graphql?query={books{name,authors{name}}}
+https://ewdemo.test.edgekey.net/graphql?query={books{name,authors{name},publisher{name}}}
+https://ewdemo.test.edgekey.net/graphql?query={books{name,authors{name},publisher{name,books{name}}}}
 
+
+## Known EW Issue
 when upload bundle file to sandbox or staging, you will see error 
 ```
 ERROR: got unexpected response from API:
