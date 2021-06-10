@@ -1,8 +1,6 @@
 import { DataSource } from 'apollo-datasource';
 import { logger } from 'log';
 
-const sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
-
 export class BookService extends DataSource {
     constructor() {
         super();
