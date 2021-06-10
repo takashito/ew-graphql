@@ -1,9 +1,9 @@
 # ew-graphql
 Graphql Service implemented by Akamai EdgeWoker
 
-```
-when upload bundle file to sandbox or staging, you will see error 
 
+when upload bundle file to sandbox or staging, you will see error 
+```
 ERROR: got unexpected response from API:
 {
   "type": "/sandbox-api/error-types/bad-request",
@@ -14,16 +14,17 @@ ERROR: got unexpected response from API:
   "path": "/sandbox-api/v1/sandboxes/d125b951-d59e-46cf-96b5-f545449d7a1a/edgeworkers/5939",
   "method": "PUT"
 }
-
+```
 This is due to the EW limitation that bundled code size need to be < 1MB.
 to avoid this error, you need to edit follwoing file
 
+```
 ./node_modules/graphql-helix/dist/render-graphiql.js
 
 const renderGraphiQL = (options = {}) => {
  ...
  const css = "[DELETE CODE]";
  const javascript = "[DELETE CODE]";
+```
 
 This will save more than 1MB of code size, and can deploy bundle without error.
-```
