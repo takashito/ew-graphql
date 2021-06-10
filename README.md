@@ -41,7 +41,10 @@ https://ewdemo.test.edgekey.net/graphql?query={books{name,authors{name},publishe
 
 
 ## Known EW Issue
-when upload bundle file to sandbox or staging, you will see error 
+
+- sending query via POST will not work due to [EdgeWorker limitation](https://learn.akamai.com/en-us/webhelp/edgeworkers/edgeworkers-user-guide/GUID-F709406E-2D67-4996-B619-91E90F04EDF2.html)
+
+- when upload bundle file to sandbox or staging, you will see error 
 ```
 ERROR: got unexpected response from API:
 {
